@@ -1,0 +1,35 @@
+{
+  "Routes": [
+    //Order API
+    {
+      "DownstreamPathTemplate": "/api/v1/Order",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "esourcingorder",
+          "Port": "80"
+        }
+      ],
+      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamPathTemplate": "/Order"
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Order/GetOrdersByFilter",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "esourcingorder",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Order/GetOrdersByFilter",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+
+
+
+
+
+
+  ]
+}
