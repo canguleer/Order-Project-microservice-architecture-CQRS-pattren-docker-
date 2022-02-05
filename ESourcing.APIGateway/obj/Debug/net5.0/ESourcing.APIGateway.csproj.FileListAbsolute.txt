@@ -65,3 +65,4 @@ C:\Users\ASUS\Desktop\OrjinalYedekler\SonHali\v1.3\ESourcing-master\ESourcing.AP
 C:\Users\ASUS\Desktop\OrjinalYedekler\SonHali\v1.3\ESourcing-master\ESourcing.APIGateway\obj\Debug\net5.0\ref\ESourcing.APIGateway.dll
 C:\Users\ASUS\Desktop\OrjinalYedekler\SonHali\v1.3\ESourcing-master\ESourcing.APIGateway\obj\Debug\net5.0\ESourcing.APIGateway.pdb
 C:\Users\ASUS\Desktop\OrjinalYedekler\SonHali\v1.3\ESourcing-master\ESourcing.APIGateway\obj\Debug\net5.0\ESourcing.APIGateway.genruntimeconfig.cache
+C:\Users\ASUS\Desktop\OrjinalYedekler\SonHali\v1.3\ESourcing-master\ESourcing.APIGateway\obj\Debug\net5.0\ESourcing.APIGateway.csproj.CopyComplete
