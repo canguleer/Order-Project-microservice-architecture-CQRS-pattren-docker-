@@ -1,0 +1,77 @@
+services:
+  esourcing.apigateway:
+    build:
+      context: C:\Users\ASUS\Desktop\OrjinalYedekler\SonHali\v1.3\ESourcing-master
+      dockerfile: ESourcing.APIGateway/Dockerfile
+    container_name: esourcingapigateway
+    depends_on:
+      esourcing.order:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: esourcingapigateway
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: 5000
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: /.microsoft/usersecrets/
+      target: /root/.microsoft/usersecrets
+      bind:
+        create_host_path: true
+    - type: bind
+      source: /.aspnet/https
+      target: /root/.aspnet/https
+      bind:
+        create_host_path: true
+  esourcing.order:
+    build:
+      context: C:\Users\ASUS\Desktop\OrjinalYedekler\SonHali\v1.3\ESourcing-master
+      dockerfile: ESourcing.Order/Dockerfile
+    container_name: esourcingorder
+    depends_on:
+      sourcingsqldb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings:OrderConnection: Server=sourcingsqldb;Database=OrderDB;User
+        Id=sa;Password=Copypaste123!!
+    image: esourcingorder
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: 8002
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: /.microsoft/usersecrets/
+      target: /root/.microsoft/usersecrets
+      bind:
+        create_host_path: true
+    - type: bind
+      source: /.aspnet/https
+      target: /root/.aspnet/https
+      bind:
+        create_host_path: true
+  sourcingsqldb:
+    container_name: sourcingsqldb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Copypaste123!!
+    image: mcr.microsoft.com/mssql/server
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: 1433
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose15669158313686955262_default
